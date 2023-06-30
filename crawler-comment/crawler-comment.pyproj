@@ -23,6 +23,7 @@
   <ItemGroup>
     <Compile Include="crawler_comment.py" />
     <Compile Include="crawling_comment_dantri.py" />
+    <Compile Include="crawling_comment_tuoitre.py" />
     <Compile Include="crawling_comment_vnexpress.py" />
     <Compile Include="models\news_comment.py" />
     <Compile Include="connect.py" />
