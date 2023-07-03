@@ -9,7 +9,7 @@ from models.news_comment import sub_comment
 
 class crawling_comment_tuoitre:
     def __init__(self, driver):
-        self.driver = driver
+        self.driver = driverf
 
 
     def crawlingComment(self):
