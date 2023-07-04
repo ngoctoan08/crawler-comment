@@ -189,3 +189,7 @@ def crawlingCommentBaophapluat(driver):
     time.sleep(2)
     driver.quit()
 crawlingCommentBaophapluat(driver)
+
+
+    
+    
