@@ -43,21 +43,23 @@ class crawling_comments_vietnamnet():
         
         #Lấy nội dung
         user_item = self.driver.find_elements(By.CLASS_NAME, 'user__item')
-        for content in user_item:
-            '''Lấy comments'''
-            comment_text = content.find_element(By.TAG_NAME, "p").text
+        if user_item:
+            for content in user_item:
+                '''Lấy comments'''
+                comment_text = content.find_element(By.TAG_NAME, "p").text
             
-            '''Lấy reaction của comment'''
-            try:
-                user_react = content.find_element(By.CSS_SELECTOR,'span.group-hover\:text-\[\#666\]').text
-            except:
-                user_react = "0"
+                '''Lấy reaction của comment'''
+                try:
+                    user_react = content.find_element(By.CSS_SELECTOR,'span.group-hover\:text-\[\#666\]').text
+                except:
+                    user_react = "0"
             
-            #Lưu vào database
-            # commentData = news_comment(_id = ObjectId(), content=comment_text)
-            # commentData.save()
-            print(comment_text + " " + user_react + " like" )
-
+                #Lưu vào database
+                # commentData = news_comment(_id = ObjectId(), content=comment_text)
+                # commentData.save()
+                print(comment_text + " " + user_react + " like" )
+        else:
+            print("Khong co comment")
     
         
 
