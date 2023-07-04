@@ -5,6 +5,7 @@ from crawling_comment_vnexpress import crawling_comment_vnexpress
 from mongoengine import connect
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from crawling_VietNamNet import *
 #ket noi database
 #connect(db='hoc_nodejs', host='localhost', port=27017)
 
@@ -181,6 +182,24 @@ def crawlingCommentBaophapluat(driver):
     else:
         print("co comment")
 
+        #comments = listComment.find_elements(By.CLASS_NAME, 'item')
+        #for comment in comments:
+        #    commentText = comment.find_element(By.CLASS_NAME, 'text-comment').text
+        #    reaction = comment.find_element(By.CLASS_NAME, 'total-like').text
+        #    print(commentText + '---' + reaction)
+    time.sleep(2)
+    driver.quit()
+crawlingCommentBaophapluat(driver)
+
+
+def crawlingCommentVietNamNet(driver):
+    url = "https://vietnamnet.vn/duong-tinh-cua-phuong-oanh-truoc-khi-dang-ky-ket-hon-voi-shark-binh-2154981.html"
+    driver.get(url)
+    driver.implicitly_wait(10) # seconds
+
+    crawling_comments_VNnet = crawling_comments_vietnamnet(driver)
+    crawling_comments_VNnet.crawling_comment()
+    
         #comments = listComment.find_elements(By.CLASS_NAME, 'item')
         #for comment in comments:
         #    commentText = comment.find_element(By.CLASS_NAME, 'text-comment').text
